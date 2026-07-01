@@ -1,0 +1,89 @@
+.bottom-forge {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: minmax(0, 252px) 116px;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px 11px;
+  background:
+    linear-gradient(180deg, rgba(24, 92, 78, 0.96), rgba(12, 51, 50, 0.98)),
+    #123432;
+  border-top: 1px solid rgba(244, 200, 106, 0.18);
+}
+
+.forge-ticket {
+  grid-column: 1;
+  justify-self: start;
+  width: min(100%, 252px);
+  height: 44px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 5px;
+  color: #1d513f;
+  background:
+    linear-gradient(90deg, rgba(250, 238, 195, 0.97), rgba(210, 238, 217, 0.72)),
+    #f4e3b0;
+  border: 2px solid rgba(244, 200, 106, 0.6);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.58),
+    0 4px 10px rgba(0, 0, 0, 0.18);
+
+  span {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  span {
+    color: #2b9464;
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  > svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.forge-options {
+  grid-column: 2;
+  height: 58px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+
+  button {
+    min-width: 0;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0;
+    border: 0;
+    color: #e7eadb;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 900;
+    text-shadow: 0 2px #0c1b1b;
+  }
+
+  span {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 3px solid #87918c;
+    color: #f8f1d7;
+    background: #2a342f;
+    font-size: 19px;
+  }
+}
+

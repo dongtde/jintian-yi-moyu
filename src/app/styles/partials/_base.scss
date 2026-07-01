@@ -1,0 +1,84 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Noto Sans SC",
+    system-ui,
+    sans-serif;
+  background: #081615;
+  color: #f8f1d7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(143, 217, 180, 0.2), transparent 34%),
+    linear-gradient(180deg, #071715, #123432 54%, #071211);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.phone-frame {
+  position: relative;
+  width: min(100vw, 430px);
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(16, 50, 47, 0.12), rgba(7, 20, 19, 0.98)),
+    #123432;
+  border-inline: 1px solid rgba(244, 200, 106, 0.28);
+  box-shadow: 0 0 44px rgba(0, 0, 0, 0.48);
+}
+
+.phone-frame::before,
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  inset: 0 auto 0 0;
+  width: 13px;
+  background: linear-gradient(90deg, rgba(24, 70, 62, 0.82), transparent);
+}
+
+.phone-frame::after {
+  inset: 0 0 0 auto;
+  background: linear-gradient(270deg, rgba(24, 70, 62, 0.82), transparent);
+}
+
+.loading-screen {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  color: #f4c86a;
+  font-weight: 900;
+  text-shadow: 0 2px #19302a;
+}
+

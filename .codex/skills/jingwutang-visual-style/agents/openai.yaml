@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jingwutang Visual Style"
+  short_description: "Project-only Q-version xianxia mobile game UI style guide"
+  default_prompt: "Use $jingwutang-visual-style to design or refine this project UI in the Q-version Chinese cultivation mobile game style."

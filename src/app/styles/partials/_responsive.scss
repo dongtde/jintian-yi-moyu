@@ -1,0 +1,120 @@
+@media (max-height: 760px) {
+  .home-screen {
+    grid-template-rows: minmax(286px, 41%) 54px 35px minmax(208px, 1fr) 68px;
+  }
+
+  .hero-topbar {
+    height: 82px;
+  }
+
+  .scene-worker {
+    width: 210px;
+    bottom: 48px;
+  }
+
+  .scene-boss {
+    bottom: 134px;
+    width: 70px;
+  }
+
+  .mail-talisman {
+    bottom: 72px;
+  }
+
+  .cultivation-scene h1 {
+    bottom: 14px;
+    font-size: 24px;
+  }
+
+  .cultivation-meter {
+    grid-template-columns: minmax(0, 1fr) 68px;
+    padding: 6px 10px;
+  }
+
+  .meter-track {
+    height: 38px;
+  }
+
+  .board-grid {
+    gap: 6px;
+  }
+
+  .slot-glyph {
+    width: 31px;
+    height: 31px;
+  }
+
+  .bottom-forge {
+    grid-template-columns: minmax(0, 232px) 108px;
+    padding-block: 5px 8px;
+  }
+
+  .forge-ticket {
+    height: 42px;
+
+    > svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .nav-forge-button {
+    width: 60px;
+    height: 60px;
+
+    svg {
+      width: 45px;
+      height: 45px;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .forge-ticket {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 4px;
+    padding-right: 6px;
+
+    svg {
+      width: 29px;
+      height: 29px;
+    }
+  }
+
+  .forge-options {
+    gap: 2px;
+  }
+}
+
+@media (min-width: 700px) {
+  .app-shell {
+    padding: 18px 0;
+  }
+
+  .phone-frame {
+    height: min(900px, calc(100dvh - 36px));
+    min-height: min(900px, calc(100dvh - 36px));
+    border-radius: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-light-band,
+  .scene-monitor-aura,
+  .scene-particle {
+    animation: none;
+  }
+
+  .scene-light-band,
+  .scene-particle {
+    opacity: 0;
+  }
+
+  .scene-monitor-aura {
+    opacity: 0.34;
+  }
+}

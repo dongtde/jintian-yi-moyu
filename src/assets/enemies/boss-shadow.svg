@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="老板巡查剪影">
+  <path d="M53 214c10-45 32-75 67-75 36 0 58 30 67 75H53Z" fill="#18201f" opacity=".82"/>
+  <circle cx="120" cy="88" r="45" fill="#1e2826"/>
+  <path d="M78 89c11-48 43-70 84-45 13 8 22 22 25 41-37-15-68-10-109 4Z" fill="#2f3833"/>
+  <path d="M91 108c13-6 23-6 36 0M141 108c13-6 23-6 36 0" stroke="#f4c86a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M95 151c16 20 33 28 51 0" stroke="#d93b31" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <path d="M69 192c20-22 44-33 72-33s51 11 70 33" fill="none" stroke="#315f50" stroke-width="12" stroke-linecap="round"/>
+</svg>

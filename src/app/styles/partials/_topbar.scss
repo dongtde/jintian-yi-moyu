@@ -1,0 +1,116 @@
+.hero-topbar {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 92px;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) 116px;
+  gap: 7px;
+  align-items: start;
+  padding: 8px 10px 0;
+  color: #f7e8b7;
+  background:
+    linear-gradient(180deg, rgba(7, 21, 20, 0.88), rgba(7, 21, 20, 0.42) 58%, rgba(7, 21, 20, 0)),
+    linear-gradient(90deg, rgba(244, 200, 106, 0.12), transparent 42%, rgba(244, 200, 106, 0.1));
+}
+
+.avatar-ring {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 42%, #f4e3b0 0 38%, #8fd9b4 39% 58%, #315f50 59% 74%, #132927 75%),
+    #315f50;
+  border: 2px solid rgba(255, 233, 148, 0.9);
+  box-shadow:
+    inset 0 0 0 4px rgba(23, 52, 47, 0.68),
+    0 4px 10px rgba(0, 0, 0, 0.32),
+    0 0 12px rgba(244, 200, 106, 0.28);
+
+  img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    transform: translateY(2px) scale(1.03);
+  }
+}
+
+.top-identity {
+  min-width: 0;
+  align-self: start;
+  padding-top: 1px;
+
+  > strong {
+    display: block;
+    color: #f7e8b7;
+    font-family: "KaiTi", "STKaiti", serif;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow:
+      0 2px #19302a,
+      0 0 9px rgba(255, 235, 171, 0.52);
+  }
+}
+
+.resource-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr);
+  gap: 4px;
+  margin-top: 9px;
+  max-width: 188px;
+
+  span,
+  button {
+    height: 27px;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(109, 170, 149, 0.34);
+    color: #f3d59a;
+    background: rgba(11, 37, 35, 0.8);
+    box-shadow: inset 0 2px rgba(255, 255, 255, 0.08);
+  }
+
+  span {
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  button {
+    color: #bdebd0;
+    padding: 0;
+  }
+}
+
+.power-banner {
+  justify-self: end;
+  min-width: 112px;
+  height: 34px;
+  padding: 5px 13px 0 18px;
+  color: #fff0a4;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 19px;
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 2px #b73924, 0 0 10px #ffe08c;
+  background:
+    linear-gradient(90deg, rgba(183, 39, 24, 0), rgba(183, 39, 24, 0.92) 15%, rgba(240, 127, 53, 0.92) 74%, rgba(240, 127, 53, 0)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(122, 31, 22, 0.28));
+  clip-path: polygon(0 50%, 12% 0, 100% 0, 91% 100%, 8% 100%);
+}
+
+.screen-body {
+  height: 100%;
+  overflow: hidden;
+}
+
