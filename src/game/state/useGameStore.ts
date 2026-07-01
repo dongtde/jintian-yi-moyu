@@ -10,7 +10,7 @@ import {
   nextBossIndex,
   runBossBattle,
 } from "@/game/simulation/systems";
-import type { BattleLogEntry, EquipmentItem, GameResources, GameState, GameTab, SlotKey } from "@/game/simulation/types";
+import type { BattleLogEntry, EquipmentItem, GameResources, GameState, GameTab, PlayerUnion, SlotKey } from "@/game/simulation/types";
 
 const SAVE_VERSION = 1;
 const STORAGE_KEY = "moyu-game-save-v1";
@@ -30,6 +30,7 @@ function freshState(): GameState {
     version: SAVE_VERSION,
     hydrated: false,
     currentTab: "workstation",
+    union: null,
     resources: initialResources(),
     stageIndex: 0,
     stageExp: 0,
@@ -46,6 +47,20 @@ function freshState(): GameState {
   };
 }
 
+function createUnionProfile(role: PlayerUnion["role"], name: string, notice: string): PlayerUnion {
+  const joinedAt = Date.now();
+
+  return {
+    id: `union-${joinedAt}`,
+    name,
+    role,
+    level: 1,
+    contribution: 0,
+    notice,
+    joinedAt,
+  };
+}
+
 function addResource(resources: GameResources, key: keyof GameResources, value = 0) {
   resources[key] = Math.max(0, Math.round(resources[key] + value));
 }
@@ -55,6 +70,9 @@ export const useGameStore = defineStore("game", {
   getters: {
     selectedItem(state): EquipmentItem | null {
       return state.selectedItemId ? state.inventory.find((item) => item.id === state.selectedItemId) ?? null : null;
+    },
+    hasUnion(state): boolean {
+      return Boolean(state.union?.id);
     },
     totalStats(state) {
       return calculateStats(state.inventory, state.equipped, state.stageIndex);
@@ -98,7 +116,11 @@ export const useGameStore = defineStore("game", {
 
       const saved = await localforage.getItem<GameState>(STORAGE_KEY);
       if (saved?.version === SAVE_VERSION) {
-        this.currentTab = saved.currentTab ?? "workstation";
+        const savedUnion = saved.union ?? null;
+        const savedTab = saved.currentTab ?? "workstation";
+
+        this.union = savedUnion;
+        this.currentTab = savedTab === "union" && !savedUnion ? "workstation" : savedTab;
         this.resources = { ...initialResources(), ...saved.resources };
         this.stageIndex = saved.stageIndex ?? 0;
         this.stageExp = saved.stageExp ?? 0;
@@ -127,6 +149,27 @@ export const useGameStore = defineStore("game", {
     },
     setTab(tab: GameTab) {
       this.currentTab = tab;
+      void this.persist();
+    },
+    enterUnion(): boolean {
+      if (!this.union) {
+        return false;
+      }
+
+      this.currentTab = "union";
+      void this.persist();
+      return true;
+    },
+    joinLocalUnion() {
+      this.union = createUnionProfile("成员", "茶水间同盟", "今日目标：低调摸鱼，准点撤退。");
+      this.currentTab = "union";
+      this.pushLog({ text: `已加入「${this.union.name}」，工会频道已开启。`, tone: "good" });
+      void this.persist();
+    },
+    createLocalUnion() {
+      this.union = createUnionProfile("会长", "准点下班协会", "会长工牌已激活，等你招募摸鱼同僚。");
+      this.currentTab = "union";
+      this.pushLog({ text: `已创建「${this.union.name}」，从此摸鱼有组织。`, tone: "rare" });
       void this.persist();
     },
     moyuClick() {

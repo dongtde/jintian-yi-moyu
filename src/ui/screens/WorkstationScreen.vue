@@ -16,9 +16,6 @@
         <i></i>
       </button>
 
-      <OfficeWorkerScene class="worker scene-worker" :class="{ forging: isForging }" />
-      <div class="typing-feedback" :class="{ active: isForging }"></div>
-
       <h1>{{ game.stageIndex + 1 }}级 · {{ game.stageName }} · 一阶</h1>
     </div>
 
@@ -43,7 +40,7 @@
 
     <section class="equipment-board">
       <button class="board-caret-button" type="button" aria-label="查看人物属性" @click="$emit('openStats')">
-        <span></span>
+        <span class="board-caret-shell"></span>
       </button>
 
       <div class="board-grid">
@@ -55,7 +52,7 @@
           type="button"
           :aria-label="boardSlotTitle(cell)"
           :title="boardSlotTitle(cell)"
-          @click="cell.slot ? selectEquipped(cell.slot) : game.setTab('union')"
+          @click="cell.slot ? selectEquipped(cell.slot) : $emit('openUnion')"
         >
           <template v-if="getEquippedForCell(cell)">
             <EquipmentIcon :kind="cell.id" :template-id="getEquippedForCell(cell)!.templateId" />
@@ -95,15 +92,11 @@ import { equipmentLevel } from "@/game/simulation/systems";
 import { slotKeys, type EquipmentItem, type SlotKey } from "@/game/simulation/types";
 import { useGameStore } from "@/game/state/useGameStore";
 import LogList from "@/ui/components/LogList.vue";
-import OfficeWorkerScene from "@/ui/components/OfficeWorkerScene.vue";
 import { CircleMark, EquipmentIcon, MessageBubble, TaskScrollMark } from "@/ui/icons/GameMarks";
-
-defineProps<{
-  isForging: boolean;
-}>();
 
 defineEmits<{
   openStats: [];
+  openUnion: [];
 }>();
 
 const game = useGameStore();

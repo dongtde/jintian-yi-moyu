@@ -163,7 +163,6 @@
   height: 99px;
   margin-top: -21px;
   display: grid;
-  grid-template-rows: 76px 17px;
   place-items: center;
   align-content: center;
   padding: 0;
@@ -181,27 +180,12 @@
     0 17px 24px rgba(0, 0, 0, 0.44);
 
   svg {
-    width: 82px;
-    height: 82px;
-    margin-top: -2px;
+    width: 84px;
+    height: 84px;
+    margin: 0;
     filter:
       drop-shadow(0 4px 0 rgba(90, 46, 19, 0.38))
       drop-shadow(0 0 8px rgba(255, 240, 164, 0.5));
-  }
-
-  span {
-    position: relative;
-    z-index: 3;
-    margin-top: -10px;
-    color: #fff0b0;
-    font-family: "KaiTi", "STKaiti", serif;
-    font-size: 15px;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: 0;
-    text-shadow:
-      0 2px #7d4215,
-      0 0 8px rgba(255, 240, 164, 0.72);
   }
 }
 

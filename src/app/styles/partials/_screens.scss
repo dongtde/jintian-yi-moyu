@@ -356,3 +356,52 @@
   }
 }
 
+.union-status-panel {
+  padding: 16px;
+
+  &.joined {
+    min-height: 168px;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(63, 211, 255, 0.14), transparent 44%),
+      linear-gradient(180deg, rgba(22, 77, 67, 0.94), rgba(8, 31, 31, 0.96));
+    border-color: rgba(244, 200, 106, 0.52);
+  }
+
+  span {
+    max-width: 270px;
+    line-height: 1.38;
+  }
+}
+
+.union-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+
+  span {
+    min-width: 0;
+    min-height: 64px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(143, 217, 180, 0.22);
+    background:
+      radial-gradient(circle at 50% 0, rgba(244, 200, 106, 0.12), transparent 56%),
+      rgba(7, 26, 27, 0.76);
+  }
+
+  em {
+    color: #8fd9b4;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  strong {
+    color: #f4c86a;
+    font-size: 18px;
+  }
+}
+

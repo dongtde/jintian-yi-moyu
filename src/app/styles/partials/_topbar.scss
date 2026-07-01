@@ -33,10 +33,11 @@
     0 0 12px rgba(244, 200, 106, 0.28);
 
   img {
-    width: 62px;
-    height: 62px;
+    display: block;
+    width: 54px;
+    height: 54px;
     object-fit: contain;
-    transform: translateY(2px) scale(1.03);
+    object-position: center;
   }
 }
 

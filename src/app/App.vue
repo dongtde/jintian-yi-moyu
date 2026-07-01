@@ -26,8 +26,8 @@
         <main class="screen-body">
           <WorkstationScreen
             v-if="game.currentTab === 'workstation'"
-            :is-forging="isForging"
             @open-stats="showStatsModal = true"
+            @open-union="handleUnionEntry"
           />
           <BagScreen v-else-if="game.currentTab === 'bag'" />
           <ChallengeScreen v-else-if="game.currentTab === 'challenge'" />
@@ -39,7 +39,7 @@
             v-for="tab in leadingTabs"
             :key="tab.id"
             type="button"
-            @click="openFeatureMenu(tab)"
+            @click="handleNavEntry(tab)"
           >
             <component :is="tab.icon" />
             <span>{{ tab.label }}</span>
@@ -54,7 +54,7 @@
             v-for="tab in trailingTabs"
             :key="tab.id"
             type="button"
-            @click="openFeatureMenu(tab)"
+            @click="handleNavEntry(tab)"
           >
             <component :is="tab.icon" />
             <span>{{ tab.label }}</span>
@@ -78,6 +78,12 @@
           </section>
         </div>
 
+        <UnionGateModal
+          v-if="showUnionGate"
+          @close="closeUnionGate"
+          @join="handleUnionGateJoin"
+          @create="handleUnionGateCreate"
+        />
         <StatsModal v-if="showStatsModal" @close="showStatsModal = false" />
         <ItemModal />
       </template>
@@ -92,6 +98,7 @@ import workerAvatar from "@/assets/characters/office-worker-avatar.svg";
 import { useGameStore } from "@/game/state/useGameStore";
 import ItemModal from "@/ui/modals/ItemModal.vue";
 import StatsModal from "@/ui/modals/StatsModal.vue";
+import UnionGateModal from "@/ui/modals/UnionGateModal.vue";
 import BagScreen from "@/ui/screens/BagScreen.vue";
 import ChallengeScreen from "@/ui/screens/ChallengeScreen.vue";
 import UnionScreen from "@/ui/screens/UnionScreen.vue";
@@ -101,6 +108,7 @@ import { ForgeSealMark, NavAdventureMark, NavCaveMark, NavChallengeMark, NavGuil
 const game = useGameStore();
 const isForging = ref(false);
 const showStatsModal = ref(false);
+const showUnionGate = ref(false);
 const activeFeatureMenu = ref<NavEntry | null>(null);
 
 type NavEntryId = "guild" | "bag" | "challenge" | "adventure";
@@ -170,6 +178,7 @@ function formatNumber(value: number): string {
 
 function handleForge() {
   activeFeatureMenu.value = null;
+  showUnionGate.value = false;
 
   if (game.currentTab !== "workstation") {
     game.setTab("workstation");
@@ -196,7 +205,44 @@ function handleForge() {
   }, 560);
 }
 
+function handleNavEntry(tab: NavEntry) {
+  if (tab.id === "guild") {
+    handleUnionEntry();
+    return;
+  }
+
+  openFeatureMenu(tab);
+}
+
+function handleUnionEntry() {
+  activeFeatureMenu.value = null;
+  showStatsModal.value = false;
+  game.selectedItemId = null;
+
+  if (game.enterUnion()) {
+    showUnionGate.value = false;
+    return;
+  }
+
+  showUnionGate.value = true;
+}
+
+function closeUnionGate() {
+  showUnionGate.value = false;
+}
+
+function handleUnionGateJoin() {
+  showUnionGate.value = false;
+  game.joinLocalUnion();
+}
+
+function handleUnionGateCreate() {
+  showUnionGate.value = false;
+  game.createLocalUnion();
+}
+
 function openFeatureMenu(tab: NavEntry) {
+  showUnionGate.value = false;
   activeFeatureMenu.value = tab;
 }
 

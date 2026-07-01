@@ -134,10 +134,21 @@ export interface GameResources {
   performance: number;
 }
 
+export interface PlayerUnion {
+  id: string;
+  name: string;
+  role: "会长" | "成员";
+  level: number;
+  contribution: number;
+  notice: string;
+  joinedAt: number;
+}
+
 export interface GameState {
   version: number;
   hydrated: boolean;
   currentTab: GameTab;
+  union: PlayerUnion | null;
   resources: GameResources;
   stageIndex: number;
   stageExp: number;
