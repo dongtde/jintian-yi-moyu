@@ -1,8 +1,47 @@
 # Project Instructions
 
-- For any user-facing frontend, game screen, CSS, component, icon, generated visual asset, or visual QA work in this repository, use `$jingwutang-visual-style`.
-- The style skill is project-local at `.codex/skills/jingwutang-visual-style` and should not be treated as a global preference for other repositories.
-- Backend, build, and tooling changes only need the style skill when they affect visible UI or visual assets.
-- For any game development work in this repository, including gameplay systems, project structure, feature implementation, UI flow, asset workflow, playtesting, or architecture decisions, use `.codex/skills/game-studio` first as the umbrella development skill before routing to any more specific skill.
+## Git 与提交规范
 
--自动生成git提交日志，中文版
+- Git 提交必须遵循 Conventional Commits，例如 `feat:`、`fix:`、`refactor:`、`style:`、`docs:`、`test:`、`chore:`。
+- 提交标题和提交日志必须使用中文，类型前缀可保留英文。
+- 自动生成 git 提交日志时，必须输出中文版。
+- 每次提交应聚焦一个明确目的，避免混入无关改动。
+- 提交前应根据改动范围运行相关测试、类型检查或构建命令。
+- 不主动执行 `git reset --hard`、`git checkout --` 等破坏性操作，除非用户明确要求。
+
+## 代码规范
+
+- 优先遵循项目现有目录结构、命名方式和代码风格。
+- 不做无关重构，不随意改动与任务无关的文件。
+- 新增逻辑应保持模块边界清晰，避免把 UI、状态、业务逻辑混在一起。
+- 复杂逻辑需要简短注释，但避免无意义注释。
+- 默认使用 ASCII；只有中文文案、视觉资源名或项目已有风格需要时才使用 Unicode。
+
+## 前端与 UI 规范
+
+- 不新增与项目视觉风格冲突的默认模板风 UI。
+- 移动端优先检查布局，确保文字不溢出、不重叠。
+- UI 改动完成后尽量进行截图或浏览器检查。
+- 不使用纯说明页替代真实可交互界面。
+
+## 游戏开发规范
+
+- 涉及游戏开发时，先使用 `.codex/skills/game-studio`。
+- 游戏系统改动应区分渲染层、状态层、输入层和存档层。
+- 新增玩法应考虑移动端操作、性能、资源加载和失败状态。
+- 不手写成熟引擎已有能力，优先使用项目现有技术栈和库。
+- 新增资源要放入清晰的资源目录，并保持命名一致。
+
+## 资源与文案规范
+
+- 用户可见文案默认使用中文。
+- 资源命名建议使用小写英文、短横线或项目既有命名方式。
+- 不提交临时截图、调试导出文件、构建产物，除非项目明确需要。
+- 视觉资源修改后要保留来源、用途或生成提示词记录。
+
+## 质量检查规范
+
+- 修改代码后根据影响范围运行 `npm run build`、测试或类型检查。
+- 如果无法运行检查，需要在最终回复中说明原因。
+- 修复 bug 时优先补充或更新对应测试。
+- UI 改动至少检查桌面和移动端关键视口。

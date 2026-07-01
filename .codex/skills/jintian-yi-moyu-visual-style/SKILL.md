@@ -1,9 +1,9 @@
 ---
-name: jingwutang-visual-style
-description: Use when working in this jingwutang project on frontend UI, game screens, CSS, components, icons, generated image prompts, visual QA, or any user-facing feature that affects look and feel. Apply the project's Q-version Chinese cultivation mobile game style: ink-wash green immortal grove, cute jiangshi/Daoist fantasy, dense mobile RPG interface, gold brush typography, carved teal panels, spirit-glow accents, and playful xianxia progression.
+name: jintian-yi-moyu-visual-style
+description: Use when working in this jintian-yi-moyu project on frontend UI, game screens, CSS, components, icons, generated image prompts, visual QA, or any user-facing feature that affects look and feel. Apply the project's Q-version Chinese cultivation mobile game style: ink-wash green immortal grove, cute jiangshi/Daoist fantasy, dense mobile RPG interface, gold brush typography, carved teal panels, spirit-glow accents, and playful xianxia progression.
 ---
 
-# Jingwutang Visual Style
+# Jintian Yi Moyu Visual Style
 
 ## Core Direction
 

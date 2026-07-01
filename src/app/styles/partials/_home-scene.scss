@@ -15,6 +15,19 @@
     url("../../assets/backgrounds/real-office-bg.png") center / cover no-repeat;
 }
 
+.phaser-workstation {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.phaser-workstation canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .cultivation-scene::before {
   content: "";
   position: absolute;

@@ -1,6 +1,8 @@
 <template>
   <section class="home-screen">
     <div class="cultivation-scene office-scene">
+      <PhaserWorkstation />
+
       <div class="scene-ambient-motion" aria-hidden="true">
         <span class="scene-light-band scene-light-band-one"></span>
         <span class="scene-light-band scene-light-band-two"></span>
@@ -92,6 +94,7 @@ import { equipmentLevel } from "@/game/simulation/systems";
 import { slotKeys, type EquipmentItem, type SlotKey } from "@/game/simulation/types";
 import { useGameStore } from "@/game/state/useGameStore";
 import LogList from "@/ui/components/LogList.vue";
+import PhaserWorkstation from "@/ui/components/PhaserWorkstation.vue";
 import { CircleMark, EquipmentIcon, MessageBubble, TaskScrollMark } from "@/ui/icons/GameMarks";
 
 defineEmits<{
