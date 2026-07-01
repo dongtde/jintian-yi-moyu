@@ -8,13 +8,8 @@
   }
 
   .scene-worker {
-    width: 210px;
-    bottom: 48px;
-  }
-
-  .scene-boss {
-    bottom: 134px;
-    width: 70px;
+    width: min(72vw, 292px);
+    bottom: -8px;
   }
 
   .mail-talisman {
@@ -104,7 +99,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .scene-light-band,
-  .scene-monitor-aura,
   .scene-particle {
     animation: none;
   }
@@ -112,9 +106,5 @@
   .scene-light-band,
   .scene-particle {
     opacity: 0;
-  }
-
-  .scene-monitor-aura {
-    opacity: 0.34;
   }
 }

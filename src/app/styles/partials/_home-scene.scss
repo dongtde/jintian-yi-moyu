@@ -10,150 +10,33 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  perspective: 760px;
-  perspective-origin: 50% 62%;
-  transform-style: preserve-3d;
   background:
-    radial-gradient(ellipse at 50% 52%, rgba(143, 217, 180, 0.2), transparent 42%),
-    linear-gradient(180deg, rgba(10, 35, 34, 0.1), rgba(255, 255, 255, 0.03) 44%, rgba(18, 62, 54, 0.28)),
-    url("../../assets/backgrounds/office-bg.svg") center / cover no-repeat;
-}
-
-.scene-depth-stack,
-.scene-depth-stack > * {
-  position: absolute;
-  pointer-events: none;
-}
-
-.scene-depth-stack {
-  z-index: 3;
-  inset: 0;
-  transform-style: preserve-3d;
-}
-
-.scene-window {
-  left: 50%;
-  top: 27px;
-  width: 188px;
-  height: 86px;
-  transform: translate3d(-50%, 0, -116px) rotateX(4deg) scale(1.12);
-  border: 4px solid rgba(28, 67, 60, 0.64);
-  border-radius: 13px;
-  background:
-    linear-gradient(90deg, transparent 31%, rgba(22, 59, 54, 0.4) 32% 34%, transparent 35% 65%, rgba(22, 59, 54, 0.4) 66% 68%, transparent 69%),
-    linear-gradient(180deg, rgba(233, 255, 226, 0.28), rgba(143, 217, 180, 0.1)),
-    rgba(186, 229, 209, 0.2);
-  box-shadow:
-    inset 0 -18px 30px rgba(49, 95, 80, 0.24),
-    0 18px 32px rgba(5, 24, 23, 0.34);
-}
-
-.scene-window span {
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(244, 200, 106, 0.36);
-  box-shadow: 0 0 10px rgba(244, 200, 106, 0.24);
-}
-
-.scene-window span:first-child {
-  bottom: 30px;
-}
-
-.scene-window span:last-child {
-  right: 64px;
-  bottom: 15px;
-}
-
-.scene-wall-panel {
-  top: 11px;
-  width: 112px;
-  height: 146px;
-  transform: translateZ(-76px) rotateX(3deg);
-  border: 2px solid rgba(143, 217, 180, 0.13);
-  border-radius: 15px;
-  background:
-    linear-gradient(180deg, rgba(9, 31, 29, 0.18), rgba(11, 47, 43, 0.48)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 32px);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.scene-wall-panel-left {
-  left: -34px;
-  transform: translateZ(-88px) rotateY(18deg) rotateX(3deg);
-}
-
-.scene-wall-panel-right {
-  right: -31px;
-  transform: translateZ(-88px) rotateY(-18deg) rotateX(3deg);
-}
-
-.scene-desk-plane {
-  left: -24px;
-  right: -24px;
-  bottom: 58px;
-  height: 118px;
-  transform: translateZ(-12px) rotateX(61deg);
-  transform-origin: 50% 100%;
-  border-radius: 28px 28px 18px 18px;
-  background:
-    linear-gradient(90deg, rgba(244, 200, 106, 0.16), transparent 18% 82%, rgba(244, 200, 106, 0.16)),
-    linear-gradient(180deg, #80633c, #4a3420 58%, #251c16);
-  box-shadow:
-    inset 0 10px rgba(255, 231, 152, 0.16),
-    0 -8px 22px rgba(244, 200, 106, 0.14),
-    0 28px 42px rgba(0, 0, 0, 0.3);
-}
-
-.scene-floor-plane {
-  left: -18%;
-  right: -18%;
-  bottom: -62px;
-  height: 164px;
-  transform: translateZ(8px) rotateX(72deg);
-  transform-origin: 50% 100%;
-  border-radius: 50% 50% 0 0;
-  background:
-    repeating-linear-gradient(90deg, rgba(143, 217, 180, 0.12) 0 2px, transparent 2px 54px),
-    repeating-linear-gradient(0deg, rgba(244, 200, 106, 0.08) 0 2px, transparent 2px 42px),
-    radial-gradient(ellipse at 50% 18%, rgba(63, 211, 255, 0.18), transparent 56%),
-    linear-gradient(180deg, rgba(38, 108, 92, 0.7), rgba(7, 29, 28, 0.98));
-  box-shadow: 0 -22px 36px rgba(8, 38, 36, 0.45);
-}
-
-.scene-foreground-shadow {
-  left: 50%;
-  bottom: 32px;
-  width: 278px;
-  height: 54px;
-  transform: translate3d(-50%, 0, 62px) rotateX(71deg);
-  transform-origin: 50% 50%;
-  border-radius: 50%;
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.18) 42%, transparent 72%);
-  filter: blur(1px);
+    linear-gradient(180deg, rgba(3, 6, 8, 0.06), rgba(5, 12, 14, 0.34) 62%, rgba(4, 7, 7, 0.72)),
+    url("../../assets/backgrounds/real-office-bg.png") center / cover no-repeat;
 }
 
 .cultivation-scene::before {
   content: "";
   position: absolute;
-  z-index: 4;
-  inset: 78px 24px auto;
-  height: 98px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 240, 164, 0.24), transparent 68%);
-  filter: blur(4px);
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 67% 42%, rgba(255, 190, 94, 0.2), transparent 28%),
+    radial-gradient(ellipse at 43% 42%, rgba(60, 205, 255, 0.22), transparent 36%),
+    linear-gradient(90deg, rgba(1, 6, 8, 0.42), transparent 28% 72%, rgba(1, 6, 8, 0.28));
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 .cultivation-scene::after {
   content: "";
   position: absolute;
-  z-index: 6;
+  z-index: 7;
   inset: auto 0 0;
-  height: 46%;
-  background: linear-gradient(180deg, transparent, rgba(32, 84, 68, 0.2), rgba(8, 31, 29, 0.56));
+  height: 42%;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(5, 10, 10, 0.24), rgba(3, 6, 6, 0.7));
 }
 
 .scene-ambient-motion,
@@ -163,121 +46,101 @@
 }
 
 .scene-ambient-motion {
-  z-index: 7;
+  z-index: 8;
   inset: 0;
   overflow: hidden;
-  transform: translateZ(18px);
   contain: layout paint;
 }
 
 .scene-light-band {
-  left: -34%;
-  width: 62%;
-  height: 7px;
+  left: -38%;
+  width: 66%;
+  height: 6px;
   border-radius: 999px;
   opacity: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 240, 164, 0.54), rgba(143, 217, 180, 0.34), transparent);
-  box-shadow: 0 0 10px rgba(244, 200, 106, 0.18);
+  background: linear-gradient(90deg, transparent, rgba(255, 211, 138, 0.52), rgba(80, 210, 255, 0.24), transparent);
+  box-shadow: 0 0 12px rgba(255, 205, 126, 0.2);
   will-change: transform, opacity;
-  animation: scene-light-drift 10s linear infinite;
+  animation: scene-light-drift 11s linear infinite;
 }
 
 .scene-light-band-one {
-  top: 31%;
+  top: 29%;
 }
 
 .scene-light-band-two {
-  top: 42%;
-  width: 44%;
-  animation-delay: -5.6s;
-  animation-duration: 12s;
-}
-
-.scene-monitor-aura {
-  left: 50%;
-  top: 34%;
-  width: 176px;
-  height: 92px;
-  border-radius: 32px;
-  transform: translate3d(-50%, 0, 20px);
-  background: radial-gradient(ellipse at 50% 44%, rgba(63, 211, 255, 0.2), rgba(143, 217, 180, 0.1) 44%, transparent 72%);
-  opacity: 0.52;
-  will-change: opacity, transform;
-  animation: scene-monitor-breath 5.4s ease-in-out infinite;
+  top: 40%;
+  width: 48%;
+  animation-delay: -6.2s;
+  animation-duration: 13s;
 }
 
 .scene-particle {
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   opacity: 0;
-  background: #3fd3ff;
-  box-shadow: 0 0 8px rgba(63, 211, 255, 0.72);
-  transform: translate3d(0, 0, 34px);
+  background: #d8f7ff;
+  box-shadow: 0 0 9px rgba(104, 220, 255, 0.72);
   will-change: transform, opacity;
-  animation: scene-particle-float 7.6s ease-in-out infinite;
+  animation: scene-particle-float 8s ease-in-out infinite;
 }
 
 .scene-particle-one {
-  left: 15%;
-  top: 43%;
+  left: 19%;
+  top: 38%;
   animation-delay: -1.3s;
 }
 
 .scene-particle-two {
-  left: 33%;
-  top: 23%;
-  width: 5px;
-  height: 5px;
-  background: #fff0a4;
-  box-shadow: 0 0 7px rgba(255, 240, 164, 0.66);
+  left: 38%;
+  top: 24%;
+  width: 4px;
+  height: 4px;
+  background: #ffd98a;
+  box-shadow: 0 0 8px rgba(255, 203, 112, 0.72);
   animation-delay: -4.1s;
-  animation-duration: 8.8s;
+  animation-duration: 9.4s;
 }
 
 .scene-particle-three {
-  left: 80%;
-  top: 36%;
-  width: 6px;
-  height: 6px;
+  left: 78%;
+  top: 34%;
   animation-delay: -2.5s;
-  animation-duration: 9.5s;
+  animation-duration: 9.8s;
 }
 
 .scene-particle-four {
-  left: 63%;
-  top: 56%;
-  width: 5px;
-  height: 5px;
-  background: #8fd9b4;
-  box-shadow: 0 0 7px rgba(143, 217, 180, 0.62);
+  left: 61%;
+  top: 55%;
+  width: 4px;
+  height: 4px;
+  background: #cfe7df;
+  box-shadow: 0 0 8px rgba(207, 231, 223, 0.62);
   animation-delay: -6.2s;
-  animation-duration: 10.4s;
+  animation-duration: 10.6s;
 }
 
 .scene-particle-five {
   left: 87%;
-  top: 21%;
-  width: 6px;
-  height: 6px;
+  top: 20%;
   animation-delay: -7.4s;
-  animation-duration: 11.2s;
+  animation-duration: 11.6s;
 }
 
 .mail-talisman {
   position: absolute;
-  z-index: 16;
-  left: 29px;
-  bottom: 88px;
+  z-index: 18;
+  left: 25px;
+  bottom: 80px;
   width: 48px;
   height: 54px;
   display: grid;
   place-items: center;
-  color: #254439;
+  color: #283a35;
   border: 0;
   background: transparent;
-  transform: translateZ(88px) rotateX(-2deg);
-  filter: drop-shadow(0 10px 9px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 10px 9px rgba(0, 0, 0, 0.34));
 
   svg {
     width: 46px;
@@ -304,15 +167,16 @@
 .scene-worker {
   position: absolute;
   z-index: 15;
-  left: 51%;
-  bottom: 62px;
-  width: min(64vw, 252px);
-  max-width: 252px;
-  transform: translate3d(-50%, 0, 72px) rotateX(-1deg);
+  left: 50%;
+  bottom: -4px;
+  width: min(76vw, 326px);
+  max-width: 326px;
+  transform: translate3d(-50%, 0, 0);
   transform-origin: 50% 88%;
   filter:
-    drop-shadow(0 18px 16px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 12px rgba(143, 217, 180, 0.12));
+    drop-shadow(0 20px 18px rgba(0, 0, 0, 0.54))
+    drop-shadow(0 0 10px rgba(82, 204, 255, 0.12));
+  pointer-events: none;
 }
 
 .office-worker-illustration {
@@ -324,10 +188,27 @@
 }
 
 .scene-worker .typing-arm,
+.scene-worker .typing-hand,
 .scene-worker .keyboard-base,
 .scene-worker .key-spark,
-.scene-worker .monitor-glow {
+.scene-worker .monitor-glow,
+.scene-worker .screen-code-line,
+.scene-worker .head-group,
+.scene-worker .shoulder-group {
   transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scene-worker .typing-arm-left {
+  transform-origin: 72% 18%;
+}
+
+.scene-worker .typing-arm-right {
+  transform-origin: 22% 18%;
+}
+
+.scene-worker .typing-hand-left,
+.scene-worker .typing-hand-right {
   transform-origin: center;
 }
 
@@ -343,12 +224,32 @@
   animation: typing-right 560ms ease;
 }
 
+.scene-worker.forging .typing-hand-left {
+  animation: typing-hand-left 560ms ease;
+}
+
+.scene-worker.forging .typing-hand-right {
+  animation: typing-hand-right 560ms ease;
+}
+
 .scene-worker.forging .keyboard-base {
   animation: keyboard-tap 560ms ease;
 }
 
 .scene-worker.forging .monitor-glow {
   animation: monitor-flash 560ms ease;
+}
+
+.scene-worker.forging .screen-code-line {
+  animation: code-line-flash 560ms ease;
+}
+
+.scene-worker.forging .head-group {
+  animation: worker-head-focus 560ms ease;
+}
+
+.scene-worker.forging .shoulder-group {
+  animation: worker-shoulder-focus 560ms ease;
 }
 
 .scene-worker.forging .key-spark-left {
@@ -359,57 +260,26 @@
   animation: key-spark 560ms 80ms ease;
 }
 
-.scene-boss {
-  position: absolute;
-  z-index: 9;
-  right: 49px;
-  bottom: 164px;
-  width: 82px;
-  opacity: 0.66;
-  transform: translateZ(22px) rotate(-12deg);
-  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.26));
-}
-
-.office-sigil {
-  position: absolute;
-  z-index: 13;
-  left: 50%;
-  bottom: 46px;
-  width: 214px;
-  height: 50px;
-  transform: translate3d(-50%, 0, 50px) rotateX(68deg);
-  transform-origin: 50% 50%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(63, 211, 255, 0.2), transparent 64%),
-    radial-gradient(circle, rgba(244, 200, 106, 0.3), transparent 70%);
-  opacity: 0.82;
-}
-
-.office-sigil.active {
-  animation: sigil-pulse 560ms ease;
-}
-
-.work-sparkles {
+.typing-feedback {
   position: absolute;
   z-index: 17;
   left: 50%;
-  bottom: 128px;
-  width: 216px;
-  height: 96px;
+  bottom: 54px;
+  width: 224px;
+  height: 82px;
   opacity: 0;
-  transform: translate3d(-50%, 0, 102px);
-  background:
-    radial-gradient(circle at 20% 45%, #3fd3ff 0 5px, transparent 6px),
-    radial-gradient(circle at 74% 28%, #fff0a4 0 5px, transparent 6px),
-    radial-gradient(circle at 84% 64%, #8fd9b4 0 4px, transparent 5px),
-    radial-gradient(circle at 38% 18%, #fff0a4 0 3px, transparent 4px);
-  filter: drop-shadow(0 0 8px rgba(63, 211, 255, 0.9));
+  transform: translate3d(-50%, 0, 0);
   pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 55%, #5de5ff 0 4px, transparent 5px),
+    radial-gradient(circle at 75% 35%, #ffd98a 0 4px, transparent 5px),
+    radial-gradient(circle at 84% 66%, #cfe7df 0 3px, transparent 4px),
+    radial-gradient(circle at 39% 18%, #fff0a4 0 3px, transparent 4px);
+  filter: drop-shadow(0 0 8px rgba(93, 229, 255, 0.9));
 }
 
-.work-sparkles.active {
-  animation: sparkle-pop 560ms ease;
+.typing-feedback.active {
+  animation: typing-feedback-pop 560ms ease;
 }
 
 .cultivation-scene h1 {
@@ -417,7 +287,7 @@
   z-index: 18;
   left: 14px;
   right: 14px;
-  bottom: 18px;
+  bottom: 16px;
   margin: 0;
   color: #fff0b0;
   text-align: center;
@@ -427,9 +297,7 @@
   letter-spacing: 0;
   white-space: nowrap;
   text-shadow:
-    0 2px #8f4d24,
+    0 2px #613517,
     0 0 9px rgba(255, 218, 117, 0.92),
     0 0 18px rgba(255, 255, 255, 0.48);
-  transform: translateZ(44px);
 }
-
